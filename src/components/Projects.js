@@ -1,64 +1,98 @@
 import {Container, Row, Col, Nav, Tab} from "react-bootstrap";
-
+import {ProjectCard} from "./ProjectCard";
+import colorSharp2 from "../assets/img/color-sharp2.png"
+import projImg1 from "../assets/img/project-img1.png"
+import projImg2 from "../assets/img/project-img1.png"
+import projImg3 from "../assets/img/project-img3.png"
 export const Projects= () =>{
 
     const projects =[
         {
-            title:"test",
-            description:"desogne",
-            //imgUrl:projImg1,
+            title:"Abalone",
+            description:"Project cpp",
+            imgUrl:projImg1,
         },
         {
-            title:"test",
-            description:"desogne",
-            //imgUrl:projImg2,
+            title:"Abalone",
+            description:"Project cpp",
+            imgUrl:projImg1,
         },
         {
-            title:"test",
-            description:"desogne",
-           // imgUrl:projImg1,
-        }
+            title:"Abalone",
+            description:"Project cpp",
+            imgUrl:projImg2,
+        },
+
+    ];
+
+    const java =[
+        {
+            title:"Abalone",
+            description:"Project cpp",
+            imgUrl:projImg1,
+        },
+        {
+            title:"Abalone",
+            description:"Project cpp",
+            imgUrl:projImg1,
+        },
+
+
     ]
+
+
     return(
         <section className="project" id="project">
             <Container>
                 <Row>
-                    <Col>
-                        <h2>Projects</h2>
+                    <Col size={12}>
+                        <h2>Cpp project</h2>
                         <p>Lorem ipsum is simply dummy text</p>
-                        <Tab.Container id='projects-tabs' defaultActiveKey="fisrt" >
-                        <Nav variant="pills" defaultActiveKey="/home">
-                            <Nav.Item>
-                                <Nav.Link eventKey="first">Tab One</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="seconde">Tab two</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="third">Tab three</Nav.Link>
-                            </Nav.Item>
+                        <Tab.Container id='projects-tabs' defaultActiveKey="first" >
+                            <Nav variant="pills" defaultActiveKey="/home">
+                                <Nav.Item>
+                                    <Nav.Link eventKey="first">Cpp</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="seconde">Java</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="third">Network</Nav.Link>
+                                </Nav.Item>
 
-                        </Nav>
+                            </Nav>
                             <Tab.Content>
                                 <Tab.Pane eventKey ="first">
                                     <Row>
                                         {
                                             projects.map((project,index) => {
                                                 return(
-                                                    <p>{project.title}</p>
-                                        )
-                                        })
+                                                    <ProjectCard key={1}
+                                                                 {...project}  />
+                                                )
+                                            })
                                         }
                                     </Row>
                                 </Tab.Pane>
-                                <Tab.Pane eventKey ="seconde">Loremp</Tab.Pane>
-                                <Tab.Pane eventKey ="third">lorem</Tab.Pane>
+                                <Tab.Pane eventKey ="seconde">
+                                    <Row>
+                                        {
+                                            java.map((java,index) => {
+                                                return(
+                                                    <ProjectCard key={index}
+                                                                 {...java}  />
+                                                )
+                                            })
+                                        }
+                                    </Row>
+                                </Tab.Pane>
+                                <Tab.Pane eventKey ="third">Java</Tab.Pane>
                             </Tab.Content>
                         </Tab.Container>
                     </Col>
                 </Row>
             </Container>
+            <img className="background-image-right" src={colorSharp2}/>
         </section>
     )
-
 }
